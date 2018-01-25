@@ -18,7 +18,6 @@ to_field "language",      marc_languages
 # Determining and describing can be a bit of a head ache. 
 to_field "format",        marc_formats
 
-# TODO: figure out what these do
 to_field "series",        marc_series_facet
 to_field "subject_geo",   marc_geo_facet
 to_field "subject_era",   marc_era_facet
