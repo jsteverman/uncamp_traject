@@ -45,7 +45,7 @@ settings do
   #provide "solr.url", "http://solr.somewhere.edu:8983/solr/corename"
 
   # List of fields for DelimitedWriter and CSVWriter
-  provide "delimited_writer.fields", "author_display, title_display"  
+  provide "delimited_writer.fields", "author_display,title_display"  
 end
 
 # Extract first 001, then supply code block to add "bib_" prefix to it
@@ -74,7 +74,6 @@ to_field "title_t",             extract_marc("245ak")
 to_field "title_display",       extract_marc("245abk", :trim_punctuation => true, :first => true)
 
 to_field "title_series_t",      extract_marc("440a:490a:800abcdt:400abcd:810abcdt:410abcd:811acdeft:411acdef:830adfgklmnoprst:760ast:762ast")
-to_field "series_facet",        marc_series_facet
 
 to_field "author_display",      extract_marc("100abcdq:110:111")
 
@@ -83,6 +82,7 @@ to_field "subject_t",           extract_marc("600:610:611:630:650:651avxyz:653aa
 # Built in logic for things that involve more than 
 # a single field extraction.
 # https://github.com/traject/traject/tree/master/lib/traject/macros
+to_field "series_facet",        marc_series_facet
 to_field "language_facet",      marc_languages
 to_field "format",              marc_formats
 to_field "subject_geo_facet",   marc_geo_facet
